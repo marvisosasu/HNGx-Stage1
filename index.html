@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Personal Data Showcase</title>
+    </head>
+  <body>
+    <div class="card-container">
+    <span class="HNG">HNG</span>
+    <img class="round"src="me.jpg"alt="Marvis Aimiuwu" data-testid="slackDisplayImage"/>
+    <h3 data-testid="slackUserName">Marvis Aimiuwu</h3>
+    <h6>Stage 1</h6>
+    <p data-testid="currentDayOfTheWeek">Sunday</p>
+    <p data-testid="currentUTCTime">1631280000000</p>
+    <p data-testid="myTrack">Frontend Track</p>
+        <a href="#"><i class="fa fa-github"></i></a>
+
+    </div>
+
+
+
+
+
+
+
+      <script>
+       // Function to update the current UTC time with milliseconds
+       function updateCurrentUTCTimeMilliseconds() {
+           const currentUTCTimeElement = document.querySelector('[data-testid="currentUTCTime"]');
+           const currentUTCTimeMilliseconds = Date.now();
+           currentUTCTimeElement.textContent = currentUTCTimeMilliseconds;
+       }
+
+       // Function to update the current day of the week
+       function updateCurrentDayOfTheWeek() {
+           const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+           const currentDayOfTheWeekElement = document.querySelector('[data-testid="currentDayOfTheWeek"]');
+           const currentDate = new Date();
+           const dayIndex = currentDate.getDay();
+           const currentDayOfTheWeek = daysOfWeek[dayIndex];
+           currentDayOfTheWeekElement.textContent = currentDayOfTheWeek;
+       }
+
+       // Update the time and day initially
+       updateCurrentUTCTimeMilliseconds();
+       updateCurrentDayOfTheWeek();
+
+       // Update the time and day every second (1000 milliseconds)
+       setInterval(updateCurrentUTCTimeMilliseconds, 1000);
+       setInterval(updateCurrentDayOfTheWeek, 1000);
+   </script>
+  </body>
+</html>
